@@ -25,7 +25,8 @@ android {
     defaultConfig {
         applicationId "com.example.compose.rally"
         minSdkVersion 21
-        targetSdkVersion 31
+        // manifest merger failed targeting android 12. so down to target sdk version.
+        targetSdkVersion 30
         versionCode 1
         versionName '1.0'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
