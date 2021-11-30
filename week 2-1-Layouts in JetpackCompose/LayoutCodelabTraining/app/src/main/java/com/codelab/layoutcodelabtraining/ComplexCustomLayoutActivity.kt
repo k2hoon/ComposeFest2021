@@ -1,5 +1,8 @@
 package com.codelab.layoutcodelabtraining
 
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
@@ -20,6 +23,20 @@ import androidx.compose.ui.layout.*
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.*
 import com.codelab.layoutcodelabtraining.ui.theme.LayoutCobelabTrainingTheme
+
+class ComplexCustomLayoutActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            LayoutCobelabTrainingTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(color = MaterialTheme.colors.background) {
+                    LayoutsCodelab()
+                }
+            }
+        }
+    }
+}
 
 val topics = listOf(
     "Arts & Crafts", "Beauty", "Books", "Business", "Comics", "Culinary",

@@ -21,7 +21,7 @@ fun ConstraintLayoutContent() {
         val (button1, button2, text) = createRefs()
 
         Button(
-            onClick = { /* Do something */ },
+            onClick = {  },
             modifier = Modifier.constrainAs(button1) {
                 top.linkTo(parent.top, margin = 16.dp)
             }
@@ -36,7 +36,7 @@ fun ConstraintLayoutContent() {
 
         val barrier = createEndBarrier(button1, text)
         Button(
-            onClick = { /* Do something */ },
+            onClick = { },
             modifier = Modifier.constrainAs(button2) {
                 top.linkTo(parent.top, margin = 16.dp)
                 start.linkTo(barrier)

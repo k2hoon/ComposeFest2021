@@ -1,5 +1,8 @@
 package com.codelab.layoutcodelabtraining
 
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -8,6 +11,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -19,20 +23,28 @@ import coil.compose.rememberImagePainter
 import com.codelab.layoutcodelabtraining.ui.theme.LayoutCobelabTrainingTheme
 import kotlinx.coroutines.launch
 
-@Composable
-fun SimpleColumn() {
+class ImageListActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            LayoutCobelabTrainingTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(color = MaterialTheme.colors.background) {
+                    ScrollingList()
+                }
+            }
+        }
+    }
+}
+
+/*@Composable
+fun SimpleList() {
     Column {
         repeat(100) {
             Text("Item #$it", style = MaterialTheme.typography.subtitle1)
         }
     }
-}
-
-@Preview
-@Composable
-fun SimpleColumnPreview() {
-    SimpleColumn()
-}
+}*/
 
 @Composable
 fun SimpleList() {
@@ -46,15 +58,9 @@ fun SimpleList() {
     }
 }
 
-@Preview
-@Composable
-fun SimpleListPreview() {
-    SimpleList()
-}
-
 @Composable
 fun LazyList() {
-    // We save the scrolling position with this state
+    // Save the scrolling position with this state
     val scrollState = rememberLazyListState()
 
     LazyColumn(state = scrollState) {
@@ -62,12 +68,6 @@ fun LazyList() {
             Text("Item #$it", style = MaterialTheme.typography.subtitle1)
         }
     }
-}
-
-@Preview
-@Composable
-fun LazyListPreview() {
-    LazyList()
 }
 
 @Composable
@@ -85,10 +85,16 @@ fun ImageListItem(index: Int) {
     }
 }
 
-@Preview
 @Composable
-fun ImageListItemPreview() {
-    ImageListItem(1)
+fun ImageList() {
+    // Save the scrolling position with this state
+    val scrollState = rememberLazyListState()
+
+    LazyColumn(state = scrollState) {
+        items(100) {
+            ImageListItem(it)
+        }
+    }
 }
 
 @Composable
@@ -126,6 +132,24 @@ fun ScrollingList() {
             }
         }
     }
+}
+
+@Preview
+@Composable
+fun SimpleListPreview() {
+    SimpleList()
+}
+
+@Preview
+@Composable
+fun LazyListPreview() {
+    LazyList()
+}
+
+@Preview
+@Composable
+fun ImageListPreview() {
+    ImageList()
 }
 
 @Preview

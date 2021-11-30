@@ -1,5 +1,8 @@
 package com.codelab.layoutcodelabtraining
 
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -19,6 +22,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.codelab.layoutcodelabtraining.ui.theme.LayoutCobelabTrainingTheme
 
+class PhotographerCardActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            LayoutCobelabTrainingTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(color = MaterialTheme.colors.background) {
+                    PhotographerCard()
+                }
+            }
+        }
+    }
+}
+
 @Composable
 fun PhotographerCard(modifier: Modifier = Modifier) {
     Row(
@@ -34,7 +51,7 @@ fun PhotographerCard(modifier: Modifier = Modifier) {
             shape = CircleShape,
             color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
         ) {
-
+            // Image here!
         }
         Column(
             modifier = Modifier.padding(start = 8.dp).align(Alignment.CenterVertically)

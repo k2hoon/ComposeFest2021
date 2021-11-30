@@ -47,38 +47,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-
-
-
-/*@Composable
-fun BodyContent(modifier: Modifier = Modifier) {
-    Row(modifier = modifier.horizontalScroll(rememberScrollState())) {
-        StaggeredGrid {
-            for (topic in topics) {
-                Chip(modifier = Modifier.padding(8.dp), text = topic)
-            }
-        }
-    }
-}*/
-
-/*@Composable
-fun BodyContent(modifier: Modifier = Modifier) {
-    MyOwnColumn(modifier.padding(8.dp)) {
-        Text("MyOwnColumn")
-        Text("places items")
-        Text("vertically.")
-        Text("We've done it by hand!")
-    }
-}*/
-
-
-
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    LayoutCobelabTrainingTheme {
-        PhotographerCard()
-    }
-}
